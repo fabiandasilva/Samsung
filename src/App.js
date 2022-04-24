@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+ 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Cart from "./components/header/cart/Cart";
 import CartContextProvider from "./components/header/cart/context/CartContext";
 import NavBar from "./components/header/NavBar";
@@ -10,6 +12,7 @@ function App() {
    return (
       <BrowserRouter>
          <CartContextProvider>
+            <ToastContainer />
             <NavBar />
             <Routes>
                <Route path="/" element={<ItemListContainer />} />

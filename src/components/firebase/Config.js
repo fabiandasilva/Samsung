@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA5zv0ac9JzeSXnhs-ar9NrUH0GuGKPemw",
-  authDomain: "prueba-c52a1.firebaseapp.com",
-  projectId: "prueba-c52a1",
-  storageBucket: "prueba-c52a1.appspot.com",
-  messagingSenderId: "51042582799",
-  appId: "1:51042582799:web:103f4eb5eec068fdd83e7a"
+  apiKey: "AIzaSyDscoe89ZtzF3eCUDzUrvDwFGgAAfouOD4",
+  authDomain: "samsung-ae8e3.firebaseapp.com",
+  projectId: "samsung-ae8e3",
+  storageBucket: "samsung-ae8e3.appspot.com",
+  messagingSenderId: "1079828583273",
+  appId: "1:1079828583273:web:7c17e62e66d6c3ff9c63f8"
 };
 
 // Initialize Firebase

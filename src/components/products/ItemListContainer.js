@@ -16,7 +16,7 @@ function ItemListContainer() {
    const { categoriaId } = useParams();
    useEffect(() => {
       const querydb = getFirestore();
-      const queryCollection = collection(querydb, "contenedorProductos");
+      const queryCollection = collection(querydb, "samsungDb");
 
       if (categoriaId) {
          const queryFilter = query(
