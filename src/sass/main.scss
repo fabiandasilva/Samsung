@@ -5,7 +5,7 @@ body {
    scroll-behavior: smooth;
    font-family: $fontS;
    background-color: $background-card-color;
-   text-decoration: none;
+   text-decoration: none !important;
 }
 
 h1,
@@ -25,4 +25,3 @@ img {
 @import "./components/hero";
 @import "./components/_products.sass";
 @import "./components/_itemCount.sass";
-

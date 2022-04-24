@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CartWidget from "./cart/CartWidget";
 
 function NavBar() {
    return (
@@ -13,7 +14,7 @@ function NavBar() {
             bg="light"
          >
             <Container>
-               <Navbar.Brand href="#home">
+               <Navbar.Brand>
                   <Link to="/">
                      <span>
                         <svg className="contenedor--svg">
@@ -46,7 +47,9 @@ function NavBar() {
                      </Nav.Link>
                   </Nav>
                   <Nav>
-                     <Nav.Link>Aca va el carrito</Nav.Link>
+                     <Nav.Link>
+                        <CartWidget />
+                     </Nav.Link>
                   </Nav>
                </Navbar.Collapse>
             </Container>
