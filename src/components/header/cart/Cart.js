@@ -1,0 +1,84 @@
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useCartContext } from "./context/CartContext";
+
+function Cart() {
+   const { cartList, removeCart, removeItemCart } = useCartContext();
+
+   const generarOrden = () => {
+      let orden = {
+         buyer: {
+            name: "Fabian",
+            phone: "123456",
+            email: "correofalso@gmail.com",
+         },
+
+         items: cartList.map((cartItem) => {
+            const id = cartItem.id;
+            const title = cartItem.title;
+            const price = cartItem.price;
+            const cantidad = cartItem.cantidad;
+
+            return { id, title, price, cantidad };
+         }),
+         total: cartList.reduce((p, c) => p + c.price * c.cantidad, 0),
+      };
+
+      const db = getFirestore();
+      const queryCollection = collection(db, "orders");
+      addDoc(queryCollection, orden)
+         .then((result) => {
+            console.log(result);
+            return result;
+         })
+         .then((result) => <p>{result.id}Orden generada</p>)
+         .catch((err) => console.log(err))
+         .finally(() => removeCart());
+      console.log(orden);
+   };
+
+   return (
+      <div>
+         {cartList.length === 0 ? (
+            <div>
+               El carrito esta vacío
+               <br />
+               <Link to="/">
+                  <Button>Ver productos</Button>
+               </Link>
+            </div>
+         ) : (
+            <>
+               {cartList.map((prod) => (
+                  <li key={prod.id}>
+                     Nombre: {prod.title} - Cantidad: {prod.cantidad}{" "}
+                     <Button onClick={() => removeItemCart(prod.id)}>
+                        Eliminar producto
+                     </Button>
+                  </li>
+               ))}
+               {cartList.length > 0 && (
+                  <>
+                     <h2>
+                        Total: $
+                        {cartList.reduce((p, c) => p + c.price * c.cantidad, 0)}
+                     </h2>
+                  </>
+               )}
+               <button className="btn btn-outline-danger" onClick={removeCart}>
+                  Vaciar carrito
+               </button>
+               <button
+                  className="btn btn-outline-success"
+                  onClick={generarOrden}
+               >
+                  Generar Orden
+               </button>
+            </>
+         )}
+      </div>
+   );
+}
+
+export default Cart;
