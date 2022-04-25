@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { useCartContext } from "../../header/cart/context/CartContext";
 import ItemCount from "../ItemCount";
 
-
 const ItemDetail = ({ producto }) => {
    const [isShowCount, setIsShowCount] = useState(true);
 
@@ -19,9 +18,9 @@ const ItemDetail = ({ producto }) => {
 
    return (
       <>
-         <section className="producto">
-            <div className="producto__contendor bd-grid">
-               <div className="producto__galeria">
+         <section className="product">
+            <div className="product__container bd-grid">
+               <div className="product__details">
                   <div className="galeria__preview">
                      <img src={producto.image} alt="" />
                   </div>

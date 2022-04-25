@@ -9,11 +9,11 @@ function Item({ producto }) {
          </div>
          <span className="samsung__name">{`${producto.title}`}</span>
          <span className="samsung__price">$ {`${producto.price}`}</span>
-         <div className="samsung__colors">
+        {/*  <div className="samsung__colors">
             <span className="samsung__color--black" />
             <span className="samsung__color--blue" />
             <span className="samsung__color--peach" />
-         </div>
+         </div> */}
          <button className="learn-more">
             <span className="circle" aria-hidden="true">
                <span className="icon arrow" />

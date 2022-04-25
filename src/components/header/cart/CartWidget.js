@@ -1,6 +1,6 @@
 import React from "react";
 import { useCartContext } from "./context/CartContext";
- 
+import { FaShoppingBag } from 'react-icons/fa';
 
 function CartWidget() {
    const { cartList } = useCartContext();
@@ -11,13 +11,8 @@ function CartWidget() {
    });
    return (
       <div>
+         <FaShoppingBag />
          {cartList.length === 0 ? " " : itemInCart}
-         <img
-            src="https://i.ibb.co/NVdx5ry/cart-shopping-solid.png"
-            alt="cart-shopping-solid"
-            border="0"
-            className="icon--logo"
-         />
       </div>
    );
 }
