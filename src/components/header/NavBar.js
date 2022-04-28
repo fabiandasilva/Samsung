@@ -7,7 +7,7 @@ function NavBar() {
    return (
       <>
          <Navbar
-            className="NavBar container" 
+            className="NavBar container"
             collapseOnSelect
             expand="lg"
             bg="light"

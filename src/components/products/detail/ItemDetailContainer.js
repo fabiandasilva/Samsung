@@ -1,6 +1,7 @@
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../../footer/Footer";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
@@ -25,6 +26,7 @@ function ItemDetailContainer() {
          ) : (
             <ItemDetail producto={producto} />
          )}
+         <Footer/>
       </div>
    );
 }

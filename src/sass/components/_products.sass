@@ -13,13 +13,14 @@
      -moz-border-radius: 0.5rem
      -ms-border-radius: 0.5rem
      -o-border-radius: 0.5rem
+     .container__img
+          width: 150px
      .samsung__img
           width: 220px
           margin-top: 12px
           margin-bottom: 13px
           filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.2))
           -webkit-filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.2))
-          
 
      .samsung__name,
      .samsung__title
@@ -39,34 +40,6 @@
 
      &
           margin-bottom: 12px
-
-     .samsung__colors
-          display: flex
-          margin: 15px
-
-          .samsung__color--black
-               width: 25px
-               height: 25px
-               cursor: pointer
-               border-radius: 50%
-               background-color: #000
-               margin: 5px
-
-          .samsung__color--blue
-               width: 25px
-               height: 25px
-               cursor: pointer
-               border-radius: 50%
-               background-color: blue
-               margin: 5px
-
-          .samsung__color--peach
-               width: 25px
-               height: 25px
-               cursor: pointer
-               border-radius: 50%
-               background-color: #ffc0cb
-               margin: 5px
 
      button
           position: relative
@@ -136,6 +109,9 @@
           line-height: 1.2
           text-align: center
           text-transform: uppercase
+     
+     button.learn-more .button-text .padding
+          padding: 20px
 
      button:hover .circle
           width: 100%

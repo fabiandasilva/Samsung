@@ -6,7 +6,8 @@ import {
    where,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; 
+import Footer from "../footer/Footer";
 import Hero from "../header/Hero";
 import ItemList from "./ItemList";
 
@@ -59,12 +60,14 @@ function ItemListContainer() {
                      flexDirection: "row",
                      flexWrap: "wrap",
                      alignItems: "flex-end",
+                     justifyContent: "center",
                   }}
                >
                   <ItemList productos={productos} />
                </div>
             )}
          </div>
+         <Footer/>
       </>
    );
 }

@@ -6,6 +6,12 @@ body {
    font-family: $fontS;
    background-color: $background-card-color;
    text-decoration: none !important;
+   
+}
+ul, li{
+   list-style: none!important;
+   
+   text-decoration: none !important;
 }
 a {
    text-decoration: none;
@@ -31,3 +37,4 @@ img {
 @import "./components/hero";
 @import "./components/_products.sass";
 @import "./components/_itemCount.sass";
+@import "./components/_footer.sass";

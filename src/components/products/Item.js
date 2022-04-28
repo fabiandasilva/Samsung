@@ -9,20 +9,14 @@ function Item({ producto }) {
          </div>
          <span className="samsung__name">{`${producto.title}`}</span>
          <span className="samsung__price">$ {`${producto.price}`}</span>
-        {/*  <div className="samsung__colors">
-            <span className="samsung__color--black" />
-            <span className="samsung__color--blue" />
-            <span className="samsung__color--peach" />
-         </div> */}
-         <button className="learn-more">
-            <span className="circle" aria-hidden="true">
-               <span className="icon arrow" />
+         <button class="learn-more">
+            <span class="circle" aria-hidden="true">
+               <span class="icon arrow"></span>
             </span>
-            <span className="button-text">
-               <Link to={`/detalle/${producto.id}`}>Comprar</Link>
+            <span class="button-text">
+               <Link to={`/detalle/${producto.id}`} className="padding">Comprar</Link>
             </span>
          </button>
-         
       </article>
    );
 }
