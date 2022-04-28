@@ -20,7 +20,11 @@ function ItemDetailContainer() {
    console.log(producto);
    return (
       <div className="container">
-         {loading ? <h1>Cargando..</h1> : <ItemDetail producto={producto} />}
+         {loading ? (
+            <h1 className="text-center">Cargando..</h1>
+         ) : (
+            <ItemDetail producto={producto} />
+         )}
       </div>
    );
 }

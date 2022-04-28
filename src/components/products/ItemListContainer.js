@@ -7,8 +7,8 @@ import {
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Hero from "../header/Hero";
 import ItemList from "./ItemList";
-import Loading from "./Loading";
 
 function ItemListContainer() {
    const [productos, setProductos] = useState([]);
@@ -47,22 +47,25 @@ function ItemListContainer() {
    console.log(productos);
 
    return (
-      <div className="container">
-         {loading ? (
-            <Loading />
-         ) : (
-            <div
-               style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  alignItems: "flex-end",
-               }}
-            >
-               <ItemList productos={productos} />
-            </div>
-         )}
-      </div>
+      <>
+         <Hero />
+         <div className="container">
+            {loading ? (
+               <h1 className="text-center">Cargando productos..</h1>
+            ) : (
+               <div
+                  style={{
+                     display: "flex",
+                     flexDirection: "row",
+                     flexWrap: "wrap",
+                     alignItems: "flex-end",
+                  }}
+               >
+                  <ItemList productos={productos} />
+               </div>
+            )}
+         </div>
+      </>
    );
 }
 

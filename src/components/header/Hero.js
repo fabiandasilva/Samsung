@@ -9,7 +9,7 @@ function Hero() {
          <div className="hero__container-text">
             <h1 className="hero__title">Serie Galaxy A</h1>
             <h5 className="hero__subtitle">Asombroso es para todos</h5>
-            <button className="hero-btn">Ver todo</button>
+            <button className="hero-btn">Ver todos</button>
          </div>
       </div>
    );

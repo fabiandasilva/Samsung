@@ -18,44 +18,53 @@ const ItemDetail = ({ producto }) => {
    };
 
    return (
-      <div className="row justify-content-end">
+      <div className="row justify-content-end align-items-center">
          <div className="col-md-6">
             <Carousel>
                <Carousel.Item>
                   <img
-                     className="d-block w-50"
-                     src={producto.image}
-                     alt="First slide"
-                     height="684px" width="587px"
+                     className="d-block w-100"
+                     src={producto.slide02}
+                     alt="First slide"                      
                   />
-                  
                </Carousel.Item>
                <Carousel.Item>
                   <img
-                     className="d-block w-50"
-                     src={producto.image}
+                     className="d-block w-100"
+                     src={producto.slide01}
                      alt="Second slide"
                   />
-
-                  
                </Carousel.Item>
                <Carousel.Item>
                   <img
-                     className="d-block w-50"
-                     src={producto.image}
+                     className="d-block w-100"
+                     src={producto.slide03}
                      alt="Third slide"
                   />
-
-                  
+               </Carousel.Item>
+               <Carousel.Item>
+                  <img
+                     className="d-block w-100"
+                     src={producto.slide04}
+                     alt="Four slide"
+                  />
+               </Carousel.Item>
+               <Carousel.Item>
+                  <img
+                     className="d-block w-100"
+                     src={producto.slide05}
+                     alt="Five slide"
+                  />
                </Carousel.Item>
             </Carousel>
-          
          </div>
          <div className="col-md-6">
             <h4 className="text-uppercase text-black-50">
                {producto.categoria}
             </h4>
-            <h1 className="display-5 text-uppercase fw-bold">{producto.title} </h1>
+            <h1 className="display-5 text-uppercase fw-bold">
+               {producto.title}{" "}
+            </h1>
             <h3 className="display-6 fw-bold my-4">${producto.price}</h3>
             <p className="lead">Stock: {producto.stock}</p>
             <p className="lead text-black-50">{producto.description}</p>
