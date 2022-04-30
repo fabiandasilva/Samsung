@@ -18,7 +18,6 @@ function ItemDetailContainer() {
          .catch((err) => console.log(err))
          .finally(() => setLoading(false));
    });
-   console.log(producto);
    return (
       <div className="container">
          {loading ? (

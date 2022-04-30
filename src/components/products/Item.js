@@ -9,11 +9,11 @@ function Item({ producto }) {
          </div>
          <span className="samsung__name">{`${producto.title}`}</span>
          <span className="samsung__price">$ {`${producto.price}`}</span>
-         <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-               <span class="icon arrow"></span>
+         <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+               <span className="icon arrow"></span>
             </span>
-            <span class="button-text">
+            <span className="button-text">
                <Link to={`/detalle/${producto.id}`} className="padding">Comprar</Link>
             </span>
          </button>

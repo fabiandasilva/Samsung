@@ -1,6 +1,9 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import React, { Fragment } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Login from "../../firebase/Login";
+import Footer from "../../footer/Footer";
 import { useCartContext } from "./context/CartContext";
 
 function Cart() {
@@ -49,7 +52,7 @@ function Cart() {
                </Link>
             </div>
          ) : (
-            <>
+            <Fragment>
                {cartList.map((prod) => (
                   <li key={prod.id}>
                      Nombre: {prod.title} - Cantidad: {prod.cantidad}{" "}
@@ -59,23 +62,28 @@ function Cart() {
                   </li>
                ))}
                {cartList.length > 0 && (
-                  <>
+                  <Fragment>
                      <h2>
                         Total: $
                         {cartList.reduce((p, c) => p + c.price * c.cantidad, 0)}
                      </h2>
-                  </>
+                     <button
+                        className="btn btn-outline-danger"
+                        onClick={removeCart}
+                     >
+                        Vaciar carrito
+                     </button>
+                     <Login />
+                     <button
+                        className="btn btn-outline-success"
+                        onClick={generarOrden}
+                     >
+                        Finalizar compra
+                     </button>
+                     <Footer />
+                  </Fragment>
                )}
-               <button className="btn btn-outline-danger" onClick={removeCart}>
-                  Vaciar carrito
-               </button>
-               <button
-                  className="btn btn-outline-success"
-                  onClick={generarOrden}
-               >
-                  Generar Orden
-               </button>
-            </>
+            </Fragment>
          )}
       </div>
    );

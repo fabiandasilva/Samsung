@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, Fragment, useContext, useState } from "react";
 
 const CartContext = createContext([]);
 
@@ -42,7 +42,7 @@ function CartContextProvider({ children }) {
    };
 
    return (
-      <>
+      <Fragment>
          <CartContext.Provider
             value={{
                cartList,
@@ -54,7 +54,7 @@ function CartContextProvider({ children }) {
          >
             {children}
          </CartContext.Provider>
-      </>
+      </Fragment>
    );
 }
 

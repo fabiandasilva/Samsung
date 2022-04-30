@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"; 
 import { useCartContext } from "../../header/cart/context/CartContext";
 import ItemCount from "../ItemCount";
 
@@ -14,7 +14,6 @@ const ItemDetail = ({ producto }) => {
       setIsShowCount(false);
       toast.success(`Has agregado ${qty} productos al carrito`);
       addToCart({ ...producto, cantidad: qty });
-      console.log(qty);
    };
 
    return (
@@ -25,7 +24,7 @@ const ItemDetail = ({ producto }) => {
                   <img
                      className="d-block w-100"
                      src={producto.slide02}
-                     alt="First slide"                      
+                     alt="First slide"
                   />
                </Carousel.Item>
                <Carousel.Item>
@@ -71,7 +70,7 @@ const ItemDetail = ({ producto }) => {
             {isShowCount ? (
                <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />
             ) : (
-               <>
+               <Fragment>
                   <Link to="/cart">
                      <button className="button-primary p-1">
                         Terminar mi compra
@@ -82,9 +81,9 @@ const ItemDetail = ({ producto }) => {
                         Seguir comprando{" "}
                      </button>
                   </Link>
-               </>
+               </Fragment>
             )}
-         </div>
+         </div> 
       </div>
    );
 };

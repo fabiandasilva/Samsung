@@ -5,8 +5,9 @@ import {
    query,
    where,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; 
+import Login from "../firebase/Login";
 import Footer from "../footer/Footer";
 import Hero from "../header/Hero";
 import ItemList from "./ItemList";
@@ -44,11 +45,10 @@ function ItemListContainer() {
             .finally(() => setLoading(false));
       }
    }, [categoriaId]);
-
-   console.log(productos);
+ 
 
    return (
-      <>
+      <Fragment>
          <Hero />
          <div className="container">
             {loading ? (
@@ -66,9 +66,9 @@ function ItemListContainer() {
                   <ItemList productos={productos} />
                </div>
             )}
-         </div>
+         </div> 
          <Footer/>
-      </>
+      </Fragment>
    );
 }
 
