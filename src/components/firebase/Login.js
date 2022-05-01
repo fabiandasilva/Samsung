@@ -1,6 +1,6 @@
 import "firebase/auth";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { getFirestoreApp } from "./Config";
 
@@ -38,9 +38,10 @@ function Login() {
       }
    }
 
+   
    return (
       <div>
-         <h1>{isRegistrando ? "registrate" : "inicia sesion"}</h1>
+         <h1>{isRegistrando ? "Registrate" : "Iniciar sesión"}</h1>
          <form onSubmit={submitHandler}>
             <label>Correo electronico</label>
             <input type="email" id="email" />
