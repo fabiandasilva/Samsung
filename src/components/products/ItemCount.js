@@ -26,7 +26,7 @@ function ItemCount({ initial, stock, onAdd }) {
             </button>
          </div>
          <button
-            className="button-primary"
+            className="btn__form"
             onClick={() => onAdd(qty)}
             disabled={stock === 0 ? true : null}
          >

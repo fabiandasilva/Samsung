@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 import { useCartContext } from "../../header/cart/context/CartContext";
 import ItemCount from "../ItemCount";
 
@@ -72,18 +72,14 @@ const ItemDetail = ({ producto }) => {
             ) : (
                <Fragment>
                   <Link to="/cart">
-                     <button className="button-primary p-1">
-                        Terminar mi compra
-                     </button>
+                     <button className="btn__form">Terminar mi compra</button>
                   </Link>
                   <Link to="/">
-                     <button className="button-primary">
-                        Seguir comprando{" "}
-                     </button>
+                     <button className="btn__form">Seguir comprando </button>
                   </Link>
                </Fragment>
             )}
-         </div> 
+         </div>
       </div>
    );
 };

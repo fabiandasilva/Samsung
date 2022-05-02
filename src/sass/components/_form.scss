@@ -1,0 +1,82 @@
+.form__container {
+   border-radius: 5px;
+   padding: 1px;
+   width: 300px;
+   display: flex;
+   flex-direction: column;
+   grid: 1rem;
+   grid-gap: 1rem;
+   input {
+      height: 40px;
+      padding: 5px 10px;
+      border: 1px solid #141414;
+      border-radius: 5px;
+      font-family: "Poppins", sans-serif;
+   }  
+   button {
+      font-family: inherit;
+      font-size: 20px;
+      background: black;
+      color: white;
+      color: #fff;
+      padding: 1.125rem 2rem;
+      padding-left: 0.9em;
+      display: flex;
+      align-items: center;
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+      span {
+         display: block;
+         margin-left: 0.3em;
+         transition: all 0.3s ease-in-out;
+      }
+      svg {
+         display: block;
+         transform-origin: center center;
+         transition: transform 0.3s ease-in-out;
+      }
+   }
+   button:hover .svg-wrapper {
+      animation: fly-1 0.6s ease-in-out infinite alternate;
+   }
+
+   button:hover svg {
+      transform: translateX(1.2em)  scale(1.1);
+      -webkit-transform: translateX(1.2em)  scale(1.1);
+      -moz-transform: translateX(1.2em)  scale(1.1);
+      -ms-transform: translateX(1.2em)  scale(1.1);
+      -o-transform: translateX(1.2em)  scale(1.1);
+}
+
+   button:hover span {
+      transform: translateX(2em);
+      -webkit-transform: translateX(2em);
+      -moz-transform: translateX(2em);
+      -ms-transform: translateX(2em);
+      -o-transform: translateX(2em);
+}
+
+   button:active {
+      transform: scale(0.95);
+   }
+
+   @keyframes fly-1 {
+      from {
+         transform: translateX(-0.1em);
+         -webkit-transform: translateX(-0.1em);
+         -moz-transform: translateX(-0.1em);
+         -ms-transform: translateX(-0.1em);
+         -o-transform: translateX(-0.1em);
+}
+
+      to {
+         transform: translateX(0.5em);
+         -webkit-transform: translateX(0.5em);
+         -moz-transform: translateX(0.5em);
+         -ms-transform: translateX(0.5em);
+         -o-transform: translateX(0.5em);
+}
+   }
+}

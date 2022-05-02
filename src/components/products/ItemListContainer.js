@@ -3,11 +3,10 @@ import {
    getDocs,
    getFirestore,
    query,
-   where,
+   where
 } from "firebase/firestore";
 import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; 
-import Login from "../firebase/Login";
+import { useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Hero from "../header/Hero";
 import ItemList from "./ItemList";

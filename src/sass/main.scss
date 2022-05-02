@@ -33,9 +33,22 @@ img {
    height: auto;
    display: block;
 }
+.btn__form {
+   display: inline-block;
+   background-color: #141414;
+   color: #fff;
+   margin: 1rem;
+   padding: 1.125rem 2rem;
+   font-weight: 500;
+   border-radius: 0.5rem;
+   border: 2px solid #8a8a8a;
+   transition: 0.3s;
+   cursor: pointer;
+}
 @import "./components/header.scss";
 @import "./components/hero";
 @import "./components/_products.sass";
 @import "./components/_itemCount.sass";
 @import "./components/_footer.sass";
 @import "./components/_order.sass";
+@import "./components/form";
