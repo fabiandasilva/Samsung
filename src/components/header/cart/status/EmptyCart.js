@@ -16,6 +16,7 @@ const EmptyCart = () => {
             </Link>
          </div>
       </div>
+      
    );
 };
 

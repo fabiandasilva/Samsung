@@ -2,7 +2,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { FcShipped } from "react-icons/fc";
 import { toast } from "react-toastify";
 
-function Form() {
+function Form({ items }) {
    const submitOrder = (e) => {
       e.preventDefault();
 
@@ -32,18 +32,17 @@ function Form() {
             return result;
          })
          .then((result) => toast.info(`Orden de compra ${result.id}`))
-         .catch((err) => console.log(err))
-         .finally(() => removeCart());
+         .catch((err) => console.log(err));
    };
    return (
       <form onSubmit={submitOrder} className="form__container">
          <h3>Datos del comprador</h3>
 
-         <input placeholder="Nombre y Apellido" type="name" name="name" />
+         <input placeholder="Nombre y Apellido" type="name" name="name" required="required"/>
 
-         <input placeholder="Telefono" type="telephone" name="phone" />
+         <input placeholder="Telefono" type="telephone" name="phone" required="required"/>
 
-         <input placeholder="Email" type="email" name="email" />
+         <input placeholder="Email" type="email" name="email" required="required"/>
          <button type="submit">
             <div className="svg-wrapper-1">
                <div className="svg-wrapper">
