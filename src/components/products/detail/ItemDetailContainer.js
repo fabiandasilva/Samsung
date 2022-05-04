@@ -5,7 +5,7 @@ import Footer from "../../footer/Footer";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
-   const [producto, setProducto] = useState({});
+   const [products, setproducts] = useState({});
    const [loading, setLoading] = useState(true);
    const { detalleId } = useParams();
 
@@ -14,7 +14,7 @@ function ItemDetailContainer() {
       const queryProd = doc(querydb, "samsungDb", detalleId);
 
       getDoc(queryProd)
-         .then((resp) => setProducto({ id: resp.id, ...resp.data() }))
+         .then((resp) => setproducts({ id: resp.id, ...resp.data() }))
          .catch((err) => console.log(err))
          .finally(() => setLoading(false));
    });
@@ -23,7 +23,7 @@ function ItemDetailContainer() {
          {loading ? (
             <h1 className="text-center">Cargando..</h1>
          ) : (
-            <ItemDetail producto={producto} />
+            <ItemDetail products={products} />
          )}
          <Footer/>
       </div>

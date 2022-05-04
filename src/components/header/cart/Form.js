@@ -28,7 +28,6 @@ function Form({ items }) {
       const queryCollection = collection(db, "orders");
       addDoc(queryCollection, order)
          .then((result) => {
-            console.log(result);
             return result;
          })
          .then((result) => toast.info(`Orden de compra ${result.id}`))

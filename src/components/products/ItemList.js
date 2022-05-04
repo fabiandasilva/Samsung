@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import Item from "./Item";
 
-function ItemList({ productos }) {
+function ItemList({ products }) {
    return (
       <Fragment>
-         {productos.map((producto) => (
-            <Item key={producto.id} producto={producto} />
+         {products.map((products) => (
+            <Item key={products.id} products={products} />
          ))}
       </Fragment>
    );

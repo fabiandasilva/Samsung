@@ -12,22 +12,23 @@ import Hero from "../header/Hero";
 import ItemList from "./ItemList";
 
 function ItemListContainer() {
-   const [productos, setProductos] = useState([]);
+   const [products, setproducts] = useState([]);
    const [loading, setLoading] = useState(true);
-   const { categoriaId } = useParams();
+   const { categoriaId: categoriesId } = useParams();
+   
    useEffect(() => {
       const querydb = getFirestore();
       const queryCollection = collection(querydb, "samsungDb");
 
-      if (categoriaId) {
+      if (categoriesId) {
          const queryFilter = query(
             queryCollection,
-            where("categoria", "==", categoriaId)
+            where("categoria", "==", categoriesId)
          );
 
          getDocs(queryFilter)
             .then((resp) =>
-               setProductos(
+               setproducts(
                   resp.docs.map((item) => ({ id: item.id, ...item.data() }))
                )
             )
@@ -36,14 +37,14 @@ function ItemListContainer() {
       } else {
          getDocs(queryCollection)
             .then((resp) =>
-               setProductos(
+               setproducts(
                   resp.docs.map((item) => ({ id: item.id, ...item.data() }))
                )
             )
             .catch((err) => console.log(err))
             .finally(() => setLoading(false));
       }
-   }, [categoriaId]);
+   }, [categoriesId]);
  
 
    return (
@@ -51,7 +52,7 @@ function ItemListContainer() {
          <Hero />
          <div className="container">
             {loading ? (
-               <h1 className="text-center">Cargando productos..</h1>
+               <h1 className="text-center">Cargando products..</h1>
             ) : (
                <div
                   style={{
@@ -62,7 +63,7 @@ function ItemListContainer() {
                      justifyContent: "center",
                   }}
                >
-                  <ItemList productos={productos} />
+                  <ItemList products={products} />
                </div>
             )}
          </div> 

@@ -5,15 +5,15 @@ import { toast } from "react-toastify";
 import { useCartContext } from "../../header/cart/context/CartContext";
 import ItemCount from "../ItemCount";
 
-const ItemDetail = ({ producto }) => {
+const ItemDetail = ({ products }) => {
    const [isShowCount, setIsShowCount] = useState(true);
 
    const { addToCart } = useCartContext();
 
    const onAdd = (qty) => {
       setIsShowCount(false);
-      toast.success(`${producto.title} agregado al carrito`);
-      addToCart({ ...producto, cantidad: qty });
+      toast.success(`${products.title} agregado al carrito`);
+      addToCart({ ...products, cantidad: qty });
    };
 
    return (
@@ -23,35 +23,35 @@ const ItemDetail = ({ producto }) => {
                <Carousel.Item>
                   <img
                      className="d-block w-100"
-                     src={producto.slide02}
+                     src={products.slide02}
                      alt="First slide"
                   />
                </Carousel.Item>
                <Carousel.Item>
                   <img
                      className="d-block w-100"
-                     src={producto.slide01}
+                     src={products.slide01}
                      alt="Second slide"
                   />
                </Carousel.Item>
                <Carousel.Item>
                   <img
                      className="d-block w-100"
-                     src={producto.slide03}
+                     src={products.slide03}
                      alt="Third slide"
                   />
                </Carousel.Item>
                <Carousel.Item>
                   <img
                      className="d-block w-100"
-                     src={producto.slide04}
+                     src={products.slide04}
                      alt="Four slide"
                   />
                </Carousel.Item>
                <Carousel.Item>
                   <img
                      className="d-block w-100"
-                     src={producto.slide05}
+                     src={products.slide05}
                      alt="Five slide"
                   />
                </Carousel.Item>
@@ -59,16 +59,16 @@ const ItemDetail = ({ producto }) => {
          </div>
          <div className="col-md-6">
             <h4 className="text-uppercase text-black-50">
-               {producto.categoria}
+               {products.categoria}
             </h4>
             <h1 className="display-5 text-uppercase fw-bold">
-               {producto.title}{" "}
+               {products.title}{" "}
             </h1>
-            <h3 className="display-6 fw-bold my-4">${producto.price}</h3>
-            <p className="lead">Stock: {producto.stock}</p>
-            <p className="lead text-black-50">{producto.description}</p>
+            <h3 className="display-6 fw-bold my-4">${products.price}</h3>
+            <p className="lead">Stock: {products.stock}</p>
+            <p className="lead text-black-50">{products.description}</p>
             {isShowCount ? (
-               <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />
+               <ItemCount stock={products.stock} onAdd={onAdd} initial={1} />
             ) : (
                <Fragment>
                   <Link to="/cart">

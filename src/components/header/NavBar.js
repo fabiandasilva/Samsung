@@ -39,9 +39,11 @@ function NavBar() {
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                     {categories.map((category) => (
-                        <Nav.Link>
-                           <Link to={`/categoria/${category.categoryId}`}>{category.name}</Link>
+                     {categories.map((category, i) => (
+                        <Nav.Link key={i}>
+                           <Link to={`/categoria/${category.categoryId}`}>
+                              {category.name}
+                           </Link>
                         </Nav.Link>
                      ))}
                   </Nav>
