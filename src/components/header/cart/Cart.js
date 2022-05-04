@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Footer from "../../footer/Footer";
 import { useCartContext } from "./context/CartContext";
 function Cart() {
-   const { cartList, removeCart, removeItemCart } = useCartContext();
+   const { items, removeCart, removeItemCart } = useCartContext();
 
    const generarOrden = (e) => {
       e.preventDefault();
@@ -20,7 +20,7 @@ function Cart() {
             email: e.target[2].value,
          },
 
-         items: cartList.map((cartItem) => {
+         items: items.map((cartItem) => {
             const id = cartItem.id;
             const title = cartItem.title;
             const price = cartItem.price;
@@ -28,7 +28,7 @@ function Cart() {
 
             return { id, title, price, cantidad };
          }),
-         total: cartList.reduce((p, c) => p + c.price * c.cantidad, 0),
+         total: items.reduce((p, c) => p + c.price * c.cantidad, 0),
       };
 
       const queryCollection = collection(db, "orders");
@@ -45,7 +45,7 @@ function Cart() {
    return (
       <React.Fragment>
          <div className="container">
-            {cartList.length === 0 ? (
+            {items.length === 0 ? (
                <div className="container">
                   <div className="empty__cart">
                      <h1 className="empty__cart--title">
@@ -84,7 +84,7 @@ function Cart() {
                         </tr>
                      </thead>
                      <tbody>
-                        {cartList.map((prod) => (
+                        {items.map((prod) => (
                            <tr key={prod.id}>
                               <td className="table__head">
                                  <img src={prod.image} alt={prod.title} />
@@ -115,14 +115,14 @@ function Cart() {
                            </td>
                            <td>
                               $
-                              {cartList
+                              {items
                                  .reduce((p, c) => p + c.price * c.cantidad, 0)
                                  .toFixed(3)}
                            </td>
                         </tr>
                      </tfoot>
                   </table>
-                  {cartList.length > 0 && (
+                  {items.length > 0 && (
                      <Fragment className="container">
                         <form
                            onSubmit={generarOrden}
@@ -134,18 +134,21 @@ function Cart() {
                               placeholder="Nombre y Apellido"
                               type="name"
                               name="name"
+                              required="required"
                            />
 
                            <input
                               placeholder="Telefono"
                               type="telephone"
                               name="phone"
+                              required="required"
                            />
 
                            <input
                               placeholder="Email"
                               type="email"
                               name="email"
+                              required="required"
                            />
                            <button type="submit">
                               <div className="svg-wrapper-1">

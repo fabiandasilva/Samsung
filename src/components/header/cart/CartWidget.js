@@ -3,16 +3,16 @@ import { FaShoppingBag } from "react-icons/fa";
 import { useCartContext } from "./context/CartContext";
 
 function CartWidget() {
-   const { cartList } = useCartContext();
+   const { items } = useCartContext();
    let itemInCart = 0;
 
-   cartList.map((item) => {
+   items.map((item) => {
       itemInCart += item.cantidad;
    });
    return (
       <div>
          <FaShoppingBag />
-         {cartList.length === 0 ? " " : itemInCart}
+         {items.length === 0 ? " " : itemInCart}
       </div>
    );
 }
