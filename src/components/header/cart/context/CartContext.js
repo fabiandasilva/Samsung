@@ -26,18 +26,18 @@ function CartContextProvider({ children }) {
    };
 
    function itemsPrice() {
-      //ver esto
+      
       cartList.reduce((p, c) => p + c.price * c.cantidad, 0);
    }
 
    function removeItemCart(id) {
-      //macheo con el id y elimino ese producto
+      
       const newCart = cartList.filter((prod) => prod.id !== id);
       setCartList(newCart);
    }
 
    const removeCart = () => {
-      //Elimino todo el carrito
+      
       setCartList([]);
    };
 

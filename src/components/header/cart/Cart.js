@@ -1,23 +1,22 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import React, { Fragment, useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { Fragment } from "react";
 import { CgTrash, CgTrashEmpty } from "react-icons/cg";
+import { FcShipped } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import Footer from "../../footer/Footer";
 import { useCartContext } from "./context/CartContext";
-import { FcShipped } from "react-icons/fc";
 function Cart() {
    const { cartList, removeCart, removeItemCart } = useCartContext();
-   const [name, setName] = useState("");
-   const [phone, setPhone] = useState("");
-   const [email, setEmail] = useState("");
-   const generarOrden = () => {
+
+   const generarOrden = (e) => {
+      e.preventDefault();
+
       const db = getFirestore();
-      const orden = {
+      const order = {
          buyer: {
-            name: name,
-            phone: phone,
-            email: email,
+            name: `${e.target[0].value}`,
+            phone: e.target[1].value,
+            email: e.target[2].value,
          },
 
          items: cartList.map((cartItem) => {
@@ -32,7 +31,7 @@ function Cart() {
       };
 
       const queryCollection = collection(db, "orders");
-      addDoc(queryCollection, orden)
+      addDoc(queryCollection, order)
          .then((result) => {
             console.log(result);
             return result;
@@ -40,7 +39,6 @@ function Cart() {
          .then((result) => alert("Anotá el id de tu compra " + result.id))
          .catch((err) => console.log(err))
          .finally(() => removeCart());
-      console.log(orden);
    };
 
    return (
@@ -64,7 +62,7 @@ function Cart() {
                </div>
             ) : (
                <div className="container__info">
-                  <div className="order">
+                  <table className="order">
                      <thead>
                         <tr>
                            <th> </th>
@@ -122,37 +120,35 @@ function Cart() {
                            </td>
                         </tr>
                      </tfoot>
-                  </div>
+                  </table>
                   {cartList.length > 0 && (
                      <Fragment className="container">
-                        <form className="form__container">
+                        <form
+                           onSubmit={generarOrden}
+                           className="form__container"
+                        >
                            <h3>Datos del comprador</h3>
 
                            <input
-                              placeholder="Nombre"
+                              placeholder="Nombre y Apellido"
                               type="name"
                               name="name"
-                              onChange={(e) => setName(e.target.value)}
                            />
 
                            <input
                               placeholder="Telefono"
                               type="telephone"
                               name="phone"
-                              onChange={(e) => setPhone(e.target.value)}
                            />
+
                            <input
                               placeholder="Email"
                               type="email"
                               name="email"
-                              onChange={(e) => setEmail(e.target.value)}
                            />
-                           {/* <button className="btn__form" onClick={generarOrden}>
-                              Generar orden
-                           </button> */}
-                           <button type="submit" onClick={generarOrden}>
-                              <div class="svg-wrapper-1">
-                                 <div class="svg-wrapper">
+                           <button type="submit">
+                              <div className="svg-wrapper-1">
+                                 <div className="svg-wrapper">
                                     <FcShipped />
                                  </div>
                               </div>
