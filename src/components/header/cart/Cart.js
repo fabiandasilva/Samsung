@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import { CgTrash, CgTrashEmpty } from "react-icons/cg";
 import { FcShipped } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Footer from "../../footer/Footer";
 import { useCartContext } from "./context/CartContext";
 function Cart() {
@@ -36,7 +37,7 @@ function Cart() {
             console.log(result);
             return result;
          })
-         .then((result) => alert("Anotá el id de tu compra " + result.id))
+         .then((result) => toast.info(`Orden de compra ${result.id}`))
          .catch((err) => console.log(err))
          .finally(() => removeCart());
    };
