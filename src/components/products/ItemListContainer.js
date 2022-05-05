@@ -52,7 +52,7 @@ function ItemListContainer() {
          <Hero />
          <div className="container">
             {loading ? (
-               <h1 className="text-center">Cargando products..</h1>
+               <h1 className="text-center container">Cargando productos..</h1>
             ) : (
                <div
                   style={{

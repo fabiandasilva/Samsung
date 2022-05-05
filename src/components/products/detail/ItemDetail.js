@@ -12,7 +12,7 @@ const ItemDetail = ({ products }) => {
 
    const onAdd = (qty) => {
       setIsShowCount(false);
-      toast.success(`${products.title} agregado al carrito`);
+      toast.success(`${products.title} cantidadad ${qty} agregado carrito`);
       addToCart({ ...products, cantidad: qty });
    };
 
